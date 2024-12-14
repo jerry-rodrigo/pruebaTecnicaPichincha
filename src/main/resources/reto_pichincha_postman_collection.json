@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "ac86136d-4027-478c-8a92-7b800d5d1ec5",
+		"name": "Reto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39887607"
+	},
+	"item": [
+		{
+			"name": "Consumir el endpoint de Experiencia (tipo de cambio)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer TU_TOKEN_JWT_AQUI"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 123,\r\n    \"monto\": 100,\r\n    \"monedaOrigen\": \"USD\",\r\n    \"monedaDestino\": \"PEN\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/experiencia/tipocambio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"experiencia",
+						"tipocambio"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8080/api/experiencia/tipocambio\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Authorization: Bearer TU_TOKEN_JWT_AQUI\" \\\r\n  -d '{\r\n    \"userId\": 123,\r\n    \"monto\": 100,\r\n    \"monedaOrigen\": \"USD\",\r\n    \"monedaDestino\": \"PEN\"\r\n  }'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener el token JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/login?username=admin&password=adminpass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "adminpass"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos los tipos de cambio",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <TU_TOKEN_JWT>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/soporte/tipocambio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"soporte",
+						"tipocambio"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/api/soporte/tipocambio' \\\r\n--header 'Authorization: Bearer <TU_TOKEN_JWT>'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un tipo de cambio por ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <TU_TOKEN_JWT>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/soporte/tipocambio/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"soporte",
+						"tipocambio",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/api/soporte/tipocambio/1' \\\r\n--header 'Authorization: Bearer <TU_TOKEN_JWT>'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un tipo de cambio existente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <TU_TOKEN_JWT>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"currencyFrom\": \"PEN\",\r\n  \"currencyTo\": \"USD\",\r\n  \"rate\": 0.28\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/soporte/tipocambio/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"soporte",
+						"tipocambio",
+						"2"
+					]
+				},
+				"description": "Generated from cURL: curl --location --request PUT 'http://localhost:8080/api/soporte/tipocambio/2' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer <TU_TOKEN_JWT>' \\\r\n--data '{\r\n  \"currencyFrom\": \"PEN\",\r\n  \"currencyTo\": \"USD\",\r\n  \"rate\": 0.28\r\n}'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar un nuevo tipo de cambio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <TU_TOKEN_JWT>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"currencyFrom\": \"EUR\",\r\n  \"currencyTo\": \"USD\",\r\n  \"rate\": 1.1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/soporte/tipocambio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"soporte",
+						"tipocambio"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/api/soporte/tipocambio' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer <TU_TOKEN_JWT>' \\\r\n--data '{\r\n  \"currencyFrom\": \"EUR\",\r\n  \"currencyTo\": \"USD\",\r\n  \"rate\": 1.1\r\n}'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear ADMIN-USER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <TOKEN_ADMIN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"nuevoUser\",\r\n  \"password\": \"nuevopass\",\r\n  \"role\": \"ROLE_USER\",\r\n  \"name\": \"Nuevo Nombre\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/auth/signup' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer <TOKEN_ADMIN>' \\\r\n--data '{\r\n  \"username\": \"nuevoUser\",\r\n  \"password\": \"nuevopass\",\r\n  \"role\": \"ROLE_USER\",\r\n  \"name\": \"Nuevo Nombre\"\r\n}'\r\n"
+			},
+			"response": []
+		}
+	]
+}
